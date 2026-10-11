@@ -1,0 +1,194 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "lp_css": {
+      "type": "custom-liquid",
+      "settings": {
+        "custom_liquid": "<style>\n/* landing: distraction-free header (keeps logo + cart) */\nheader-component header-menu,header-component .menu-list,header-component nav,header-component .search-action,header-component dropdown-localization-component,header-component .header__column--center,header-component .header-drawer,header-component .header__navigation-bar-row,header-component [class*=\"localization\"],header-component [class*=\"search\"]{display:none!important}\n.rv-lp{padding:44px 0;line-height:1.65}.rv-lp h2{font-size:1.625rem;text-align:center;margin:0 0 12px}.rv-lp .rv-sub{text-align:center;max-width:620px;margin:0 auto 24px}\n.rv-grid{display:grid;gap:16px;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));max-width:980px;margin:0 auto}\n.rv-card{border:1px solid #E3E1DA;border-radius:12px;padding:18px;background:#fff}.rv-card h3{font-size:1.0625rem;margin:10px 0 6px}.rv-card p{margin:0}\n.rv-ic{width:36px;height:36px;color:#0F5257}\n.rv-step{display:flex;gap:14px;align-items:flex-start;max-width:620px;margin:0 auto 14px}.rv-num{flex:0 0 36px;height:36px;border-radius:50%;background:#0F5257;color:#fff;display:flex;align-items:center;justify-content:center;font-weight:700}\n.rv-note{max-width:620px;margin:16px auto 0;font-size:.9375rem;opacity:.85;text-align:center}\n.rv-lp ul.rv-list{max-width:520px;margin:0 auto;padding-left:1.2em}\n.rv-faq{max-width:700px;margin:0 auto}.rv-faq details{border-bottom:1px solid #E3E1DA;padding:14px 0}.rv-faq summary{cursor:pointer;font-weight:600;list-style:none}.rv-faq summary::-webkit-details-marker{display:none}.rv-faq summary::after{content:'+';float:right;color:#0F5257}.rv-faq details[open] summary::after{content:'\\2212'}.rv-faq p{margin:10px 0 0}\n.rv-cta{text-align:center}.rv-btn{display:inline-block;background:#0F5257;color:#fff;border:0;border-radius:10px;padding:16px 36px;font-size:1.0625rem;font-weight:600;cursor:pointer;text-decoration:none}\n.rv-alt{background:#F1F0EA}.rv-trust{font-size:.9375rem;margin:4px 0 0;color:#0F5257;font-weight:600}\n@media screen and (max-width:749px){\nmedia-gallery{--gallery-aspect-ratio:1.25!important}\nmedia-gallery .product-media-container{--media-preview-ratio:1.25!important}\nmedia-gallery .product-media-constraint-wrapper{width:100%!important}\nmain h1,product-information h1{font-size:1.125rem!important;line-height:1.25!important}\nvariant-picker .variant-option--buttons{display:grid!important;grid-template-columns:repeat(3,minmax(0,1fr));gap:6px!important}\nvariant-picker .variant-option--buttons legend{grid-column:1/-1;margin-bottom:2px}\nvariant-picker .variant-option__button-label{min-width:0!important;width:auto!important;padding:6px 4px!important;justify-content:center;text-align:center}\nvariant-picker .variant-option__button-label__text{font-size:.8125rem!important;line-height:1.2!important;overflow-wrap:anywhere}\n}\n</style>"
+      }
+    },
+    "main": {
+      "type": "product-information",
+      "blocks": {
+        "media-gallery": {
+          "type": "_product-media-gallery",
+          "static": true,
+          "settings": {
+            "media_presentation": "carousel",
+            "thumbnail_position": "bottom",
+            "aspect_ratio": "square",
+            "constrain_to_viewport": true,
+            "media_fit": "cover",
+            "media_radius": 12,
+            "zoom": true,
+            "hide_variants": false
+          },
+          "blocks": {}
+        },
+        "product-details": {
+          "type": "_product-details",
+          "static": true,
+          "settings": {
+            "width": "fill",
+            "width_mobile": "fill",
+            "height": "fit",
+            "gap": 18,
+            "sticky_details_desktop": true,
+            "padding-block-start": 24,
+            "padding-block-end": 24,
+            "padding-inline-start": 0,
+            "padding-inline-end": 0
+          },
+          "blocks": {
+            "group_head": {
+              "type": "group",
+              "settings": {
+                "content_direction": "column",
+                "gap": 8,
+                "width": "fill",
+                "width_mobile": "fill",
+                "height": "fit"
+              },
+              "blocks": {
+                "title": {
+                  "type": "text",
+                  "settings": {
+                    "text": "<h1>Give your cat the best seat in the house</h1>",
+                    "width": "100%",
+                    "type_preset": "h3"
+                  },
+                  "blocks": {}
+                },
+                "sub": {
+                  "type": "text",
+                  "settings": {
+                    "text": "<p>{{ closest.product.title }}</p>",
+                    "width": "100%",
+                    "type_preset": "rte"
+                  },
+                  "blocks": {}
+                },
+                "price": {
+                  "type": "price",
+                  "settings": {
+                    "show_sale_price_first": true,
+                    "type_preset": "h4",
+                    "width": "100%"
+                  },
+                  "blocks": {}
+                }
+              },
+              "block_order": [
+                "title",
+                "sub",
+                "price"
+              ]
+            },
+            "bullets": {
+              "type": "custom-liquid",
+              "settings": {
+                "custom_liquid": "<ul style='margin:0;padding-left:1.1em;line-height:1.7'><li>A sunny window seat with a view</li><li>Suction cups, no drilling or tools</li><li>Water-resistant cover, easy to wipe clean</li><li>Folds flat for storage, 7 colors</li></ul>"
+              }
+            },
+            "variant_picker": {
+              "type": "variant-picker",
+              "settings": {
+                "variant_style": "buttons",
+                "show_swatches": false,
+                "alignment": "left"
+              },
+              "blocks": {}
+            },
+            "buy_buttons": {
+              "type": "buy-buttons",
+              "settings": {
+                "stacking": true,
+                "show_pickup_availability": false,
+                "gift_card_form": false
+              },
+              "blocks": {
+                "quantity": {
+                  "type": "quantity",
+                  "static": true,
+                  "settings": {},
+                  "blocks": {}
+                },
+                "add-to-cart": {
+                  "type": "add-to-cart",
+                  "static": true,
+                  "settings": {
+                    "style_class": "button"
+                  },
+                  "blocks": {}
+                },
+                "accelerated-checkout": {
+                  "type": "accelerated-checkout",
+                  "static": true,
+                  "settings": {},
+                  "blocks": {}
+                }
+              },
+              "block_order": []
+            },
+            "trust": {
+              "type": "custom-liquid",
+              "settings": {
+                "custom_liquid": "<p class='rv-trust' style='margin:0'>Free US shipping &middot; 30-Day Happy Cat Guarantee</p><p style='margin:6px 0 0;font-size:.875rem;opacity:.8'>{% render 'rv-shipping-line', short: true, processing: true %}. For clean, smooth glass windows.</p>"
+              }
+            }
+          },
+          "block_order": [
+            "group_head",
+            "variant_picker",
+            "buy_buttons",
+            "trust",
+            "bullets"
+          ]
+        }
+      },
+      "settings": {
+        "content_width": "content-center-aligned",
+        "desktop_media_position": "left",
+        "equal_columns": true,
+        "gap": 48,
+        "enable_sticky_add_to_cart": true,
+        "background_color": "{{ settings.color_palette.background }}",
+        "padding-block-start": 16,
+        "padding-block-end": 24
+      }
+    },
+    "lp_story": {
+      "type": "custom-liquid",
+      "settings": {
+        "custom_liquid": "{% render 'rv-story' %}"
+      }
+    },
+    "lp_cta": {
+      "type": "custom-liquid",
+      "settings": {
+        "custom_liquid": "<div class='rv-lp page-width rv-cta'><h2>Give your cat the best seat in the house</h2><p class='rv-sub'>Free US shipping &middot; 30-Day Happy Cat Guarantee</p><button type='button' class='rv-btn' onclick=\"window.scrollTo({top:0,behavior:'smooth'})\">Choose your color</button></div>"
+      }
+    },
+    "lp_faq": {
+      "type": "custom-liquid",
+      "settings": {
+        "custom_liquid": "<div class='rv-lp page-width'><h2>Questions, answered honestly</h2><div class='rv-faq'><details><summary>Will it hold?</summary><p>It attaches with suction cups and works best on clean, smooth glass. Clean the glass and cups first, check the hold before your cat climbs in, and check it regularly. We do not list a weight limit because it depends on your window and setup. Please introduce one cat at a time and watch how it behaves.</p></details><details><summary>Which windows does it work on?</summary><p>Clean, smooth glass only. It will not hold on textured glass, window film, screens or uneven surfaces. If you use blinds or curtains, the hammock folds flat when you want to take it down.</p></details><details><summary>How long does shipping take?</summary><p>{% render 'rv-shipping-line' %}</p></details><details><summary>What if my cat does not like it?</summary><p>That's what our 30-Day Happy Cat Guarantee is for. If your cat doesn't take to it within 30 days of delivery, email us your order number and a photo of it set up in your home. We refund the full product price. Damaged or defective? We send a free replacement or a full refund, no return needed. <a href='/pages/happy-cat-guarantee' style='color:#0F5257'>Guarantee details</a>.</p></details></div></div>"
+      }
+    }
+  },
+  "order": [
+    "lp_css",
+    "main",
+    "lp_story",
+    "lp_faq",
+    "lp_cta"
+  ]
+}
