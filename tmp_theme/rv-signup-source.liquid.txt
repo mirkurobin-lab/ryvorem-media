@@ -1,0 +1,46 @@
+{%- comment -%} Ryvorem: merkt die Erstherkunft (utm_source/Referrer, 30 Tage) und haengt sie bei Newsletter-Anmeldungen als Kunden-Tags an: src-<kanal>, form-<formular>. {%- endcomment -%}
+<script>
+(function () {
+  var K = 'rvSrc', DAY = 864e5;
+  function get() { try { return JSON.parse(localStorage.getItem(K) || 'null'); } catch (e) { return null; } }
+  function put(v) { try { localStorage.setItem(K, JSON.stringify(v)); } catch (e) {} }
+  function detect() {
+    var q = new URLSearchParams(location.search);
+    var us = (q.get('utm_source') || '').toLowerCase(), um = (q.get('utm_medium') || '').toLowerCase();
+    if (q.get('fbclid') && !us) us = 'facebook';
+    if (us) {
+      if (/pinterest/.test(us)) return 'pinterest';
+      if (/facebook|instagram|meta|^ig$|^fb$/.test(us)) return /paid|cpc|ads/.test(um) ? 'meta-ads' : (/instagram|^ig$/.test(us) ? 'instagram' : 'facebook');
+      if (/tiktok/.test(us)) return 'tiktok';
+      if (/google|bing/.test(us)) return 'search';
+      if (/newsletter|email|shopify_email/.test(us)) return 'email';
+      if (/social/.test(us)) return 'social-bio';
+      if (/blog/.test(us)) return 'blog';
+      return us.replace(/[^a-z0-9-]/g, '').slice(0, 20) || 'other';
+    }
+    var r = '';
+    try { r = document.referrer ? new URL(document.referrer).hostname : ''; } catch (e) {}
+    if (!r || /ryvorem\.com|myshopify\.com|shopify\.com/.test(r)) return r ? null : 'direct';
+    if (/pinterest|pin\.it/.test(r)) return 'pinterest';
+    if (/instagram/.test(r)) return 'instagram';
+    if (/facebook|fb\.com|fb\.me/.test(r)) return 'facebook';
+    if (/tiktok/.test(r)) return 'tiktok';
+    if (/google|bing|duckduckgo|yahoo|ecosia/.test(r)) return 'search';
+    if (/mail/.test(r)) return 'email';
+    return 'referral';
+  }
+  var cur = get(), s = detect();
+  if (s && (!cur || Date.now() - (cur.t || 0) > 30 * DAY || (s !== 'direct' && s !== 'blog'))) put({ s: s, t: Date.now() });
+  document.addEventListener('submit', function (e) {
+    var f = e.target;
+    if (!f || !f.querySelector) return;
+    var ft = f.querySelector('input[name="form_type"]');
+    if (!ft || ft.value !== 'customer' || !f.querySelector('input[name="contact[email]"]')) return;
+    var src = (get() || {}).s || 'unknown';
+    var kind = f.id === 'rv-popup-form' ? 'popup' : (/free-cat-guide/.test(location.pathname) ? 'guide-page' : (f.closest('footer') ? 'footer' : 'other'));
+    var tags = f.querySelector('input[name="contact[tags]"]');
+    if (!tags) { tags = document.createElement('input'); tags.type = 'hidden'; tags.name = 'contact[tags]'; tags.value = 'newsletter'; f.appendChild(tags); }
+    if (tags.value.indexOf('src-') === -1) tags.value = tags.value + ',src-' + src + ',form-' + kind;
+  }, true);
+})();
+</script>
